@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Karla", system-ui, sans-serif;
+  }
+}
+
+body {
+  @apply bg-white/50 dark:bg-c-dark-bg;
+}
+
+.wrapper {
+  @apply mx-auto px-7 w-full container lg:max-w-[900px] xl:max-w-[1100px] 2xl:max-w-[1300px];
+}
+
+.title {
+  @apply text-[38px] md:text-[46px] text-c-light-high dark:text-c-dark-high font-bold md:leading-[55px];
+}
+
+/* NAV LINKS */
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scale(0);
+  background-color: #0079ff;
+  transition: all 0.3s;
+}
+
+.nav-link:hover {
+  color: #0079ff;
+}
+
+.nav-link:hover::after {
+  transform: scale(1);
+}
+
+.nav-link--active {
+  color: #0079ff !important;
+}
+
+.nav-link--active.nav-link::after {
+  transform: scale(1);
+}
+
+/* Form */
+
+.contact-info {
+  @apply flex-1 p-3 py-4 rounded-lg text-white  bg-c-light-high dark:bg-black  text-sm flex flex-col items-center justify-center gap-2;
+}
+
+.form-element {
+  @apply flex flex-col gap-2;
+}
+
+.form-element div,
+.form-element textarea {
+  @apply bg-[#eeeeee] dark:bg-[#2e2e2e] rounded-md;
+}
+
+.form-element > div {
+  @apply flex items-center duration-150 py-3 px-4;
+}
+
+.form-element input {
+  @apply flex-1 bg-transparent outline-none pr-3;
+}
+
+.form-element > textarea {
+  @apply py-2 px-4 text-black dark:text-c-dark-high outline-none focus:bg-[#eeeeee] focus:dark:bg-[#2e2e2e] duration-150 resize-none;
+}
+
+.form-element > label {
+  @apply font-medium;
+}
+
+/* Search input */
+
+.search-input {
+  @apply mt-5 flex max-w-[250px] bg-[#eeeeee] dark:bg-[#2e2e2e] items-center rounded-md;
+}
+
+.search-input input {
+  @apply bg-transparent flex-1 py-2 outline-none;
+}
+
+.search-input svg {
+  @apply mx-2;
+}
+
+/* Scrollbar */
+
+*::-webkit-scrollbar {
+  display: none;
+}

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { IoLocation, IoCall, IoMail, IoPerson } from "react-icons/io5";
+import { IoCheckmark } from "react-icons/io5";
 
 const ContactForm = () => {
+  const [sent, setSent] = useState(false);
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
-    phone: "",
+    subject: "",
     msg: "",
   });
 
-  const { name, email, phone, msg } = contactForm;
+  const { name, email, subject, msg } = contactForm;
 
   const handleChange = (e) => {
     setContactForm((prevState) => ({
@@ -24,6 +26,19 @@ const ContactForm = () => {
       method: "post",
       body: JSON.stringify(contactForm),
     });
+
+    setSent(true);
+
+    setContactForm({
+      name: "",
+      email: "",
+      subject: "",
+      msg: "",
+    });
+
+    setTimeout(() => {
+      setSent(false);
+    }, 3000);
   };
 
   return (
@@ -78,14 +93,14 @@ const ContactForm = () => {
             </div>
           </div>
           <div className="form-element">
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="subject">Subject</label>
             <div>
               <input
                 type="text"
-                name="phone"
-                id="phone"
+                name="subject"
+                id="subject"
                 onChange={handleChange}
-                value={phone}
+                value={subject}
               />
               <IoCall color="#757575" />
             </div>
@@ -104,8 +119,13 @@ const ContactForm = () => {
           ></textarea>
         </div>
       </div>
-      <button className="bg-c-primary w-fit text-white px-4 py-3 self-center rounded-xl">
-        Send Message
+      <button
+        className={`bg-c-primary w-fit text-white px-4 py-3 self-center rounded-xl
+      ${
+        sent && "bg-green-500"
+      } duration-200 min-w-[137px] flex items-center justify-center`}
+      >
+        {sent ? <IoCheckmark size={24} /> : "Send Message"}
       </button>
     </form>
   );

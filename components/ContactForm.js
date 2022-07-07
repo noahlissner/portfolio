@@ -22,7 +22,7 @@ const ContactForm = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    fetch("/api/mail", {
+    await fetch("/api/mail", {
       method: "post",
       body: JSON.stringify(contactForm),
     });

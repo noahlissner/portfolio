@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Header from "../components/Header";
 import Introduction from "../components/Introduction";
 import ProjectsGrid from "../components/ProjectsGrid";
+import { sanityClient } from "../sanity";
 
-export default function Home() {
+export default function Home({ projects }) {
   return (
     <div className="">
       <Head>
@@ -12,8 +12,24 @@ export default function Home() {
       </Head>
       <main className="wrapper">
         <Introduction />
-        <ProjectsGrid />
+        <ProjectsGrid projects={projects} />
       </main>
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const query = `*[_type == "project"] {
+    _id,
+    title,
+    slug,
+  }`;
+
+  const projects = await sanityClient.fetch(query);
+
+  return {
+    props: {
+      projects,
+    },
+  };
+};

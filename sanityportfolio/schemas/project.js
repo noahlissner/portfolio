@@ -17,6 +17,15 @@ export default {
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
       name: "description",
       title: "Description",
       type: "text",
@@ -42,6 +51,13 @@ export default {
       },
     },
     {
+      name: "selectedWork",
+      title: "Selected work",
+      type: "boolean",
+      description: "Do you want to show this project on the front page?",
+      initialValue: false,
+    },
+    {
       name: "website",
       title: "Website URL",
       type: "url",
@@ -50,6 +66,11 @@ export default {
       name: "github",
       title: "Github URL",
       type: "url",
+    },
+    {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
     },
   ],
 };

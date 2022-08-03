@@ -29,7 +29,6 @@ const myPortableTextComponents = {
 };
 
 const BlogItem = ({ post }) => {
-  console.log(post);
   return (
     <main className="wrapper flex flex-col items-center">
       <div className="pt-[5%]">

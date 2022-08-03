@@ -4,7 +4,6 @@ import Tag from "../../components/Tag";
 import { sanityClient, urlFor } from "../../sanity";
 
 const Project = ({ project }) => {
-  console.log(project);
   return (
     <main className="wrapper flex flex-col items-center">
       <section className="max-w-[700px] w-full pt-[5%]">

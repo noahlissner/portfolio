@@ -2,9 +2,14 @@ import React from "react";
 
 export const ButtonCV = () => {
   return (
-    <button className="bg-c-primary text-white py-2.5 px-4 rounded-xl text-sm">
+    <a
+      href="/Lissner_Noah_CV.pdf"
+      target="_blank"
+      rel="noreferrer"
+      className="bg-c-primary text-white py-2.5 px-4 rounded-xl text-sm"
+    >
       Download CV
-    </button>
+    </a>
   );
 };
 

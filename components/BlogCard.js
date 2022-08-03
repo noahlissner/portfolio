@@ -2,8 +2,7 @@ import React from "react";
 import moment from "moment";
 import { urlFor } from "../sanity";
 
-const BlogCard = ({ post, key }) => {
-  console.log(post);
+const BlogCard = ({ post }) => {
   return (
     <div className="group">
       <img
